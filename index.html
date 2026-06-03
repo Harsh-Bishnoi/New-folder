@@ -7,27 +7,6 @@
     <title>Elite Aviation Academy - Testimonial Slider</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
-        /* Modern Reset and Variables */
-        :root {
-            --primary: #1e3a8a;
-            --primary-light: #3b82f6;
-            --accent-green: #2e7d32;
-            --accent-green-glow: rgba(46, 125, 50, 0.15);
-            --bg-start: #f4f8ff;
-            --bg-end: #ffffff;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --card-bg: #ffffff;
-            --card-inactive: #f8fafc;
-            --font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        /* @keyframes dash {
-            to {
-                stroke-dashoffset: -1000;
-            }
-        } */
-
         /* Slider Wrapper */
         .slider-section {
             width: 100%;
@@ -62,17 +41,11 @@
             flex-shrink: 0;
         }
 
-        /* .swiper-slide-prev,
-        .swiper-slide-next {
-            opacity: 1;
-            pointer-events: auto;
-            cursor: pointer;
-        } */
-
         /* Active slide — wide card */
         .swiper-slide-active {
             width: 549px !important;
             min-height: 252px;
+            height: 100%;
             pointer-events: auto;
             z-index: 10;
         }
@@ -196,7 +169,7 @@
             }
 
             .swiper-slide-active {
-                width: 280px !important;
+                width: 380px !important;
                 height: auto;
             }
 
@@ -213,10 +186,24 @@
 
             .swiper-slide-active .avatar-wrapper {
                 width: 100%;
+                min-height: 200px;
+                max-height: 200px !important;
+                height: 200px !important;
             }
 
             .avatar-wrapper img {
-                object-position: top;
+                object-position: 40% 60%;
+            }
+
+            .swiper-slide-active .details-wrapper {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 540.98px) {
+            .swiper-slide-active {
+                width: 330px !important;
+                height: auto;
             }
         }
     </style>
@@ -231,12 +218,63 @@
         <div class="swiper swiper-container testimonial-swiper">
             <div class="swiper-wrapper">
 
-                <!-- Slide 1: James Walker (Pilot) -->
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=600"
-                                alt="James Walker - Elite Captain">
+                            <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d3f05a573b3f0e7c0dd7d_Marcel-Zimmer.webp"
+                                alt="Marcel Zimmer">
+                        </div>
+                        <div class="details-wrapper">
+                            <h2 class="name">First Officer Marcel Zimmer </h2>
+                            <p class="quote">"Personal - Respectful - Team Spirit - From day one, I was welcomed and
+                                treated as a full-fledged member of the crew. The focus is on treating each other with
+                                respect and sharing knowledge.
+                            </p>
+                            <p class="quote">In this short time, I’ve already learned a great deal.
+                                I’m proud to be part of the team."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="avatar-wrapper">
+                            <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d3ec2f9e6f564a6c70994_Younass-Marzak.webp"
+                                alt="Younass Marzak">
+                        </div>
+                        <div class="details-wrapper">
+                            <h2 class="name">First Officer Younass Marzak </h2>
+                            <p class="quote">"European Air Charter gave me my first opportunity to fly the Airbus A320,
+                                a big milestone that marked the beginning of my career. </p>
+                            <p class="quote">Today, I am proud to continue building my future within this company and
+                                its exceptional family."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="avatar-wrapper">
+                            <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d404e39bb87ec40c13218_Guilherme-Gomes.webp"
+                                alt="Guilherme Gomes">
+                        </div>
+                        <div class="details-wrapper">
+                            <h2 class="name">First Officer Guilherme Gomes</h2>
+                            <p class="quote">"The programme at European Air Charter has given me the opportunity to gain
+                                valuable flying experience in a professional airline environment. Throughout the
+                                programme, I have developed my skills, increased my confidence in daily operations, and
+                                learned from experienced colleagues who have been supportive along the way. It has been
+                                a rewarding experience and an important step in my development as a commercial pilot."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="avatar-wrapper">
+                            <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a18020e7a2eb5dcfcd6d18f_worked-with-slider-img-4.png"
+                                alt="James Walker">
                         </div>
                         <div class="details-wrapper">
                             <h2 class="name">James Walker</h2>
@@ -246,68 +284,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Slide 2: Elena Rostova (Cabin Crew) -->
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
-                                alt="Elena Rostova - Cabin Crew Leader">
-                        </div>
-                        <div class="details-wrapper">
-                            <h2 class="name">Elena Rostova</h2>
-                            <p class="quote">Exceptional safety drills and passenger care modules! The instructors
-                                prepared me meticulously for the dynamic and rigorous environments of international
-                                travel.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3: Marcus Vance (Senior Captain) -->
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
-                                alt="Marcus Vance - Senior Captain">
-                        </div>
-                        <div class="details-wrapper">
-                            <h2 class="name">Marcus Vance</h2>
-                            <p class="quote">Even with thousands of flight hours, the specialized jet-transition module
-                                provided key insights. The state-of-the-art simulator sessions were outstanding.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4: Sarah Jenkins (First Officer) -->
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
-                                alt="Sarah Jenkins - First Officer">
-                        </div>
-                        <div class="details-wrapper">
-                            <h2 class="name">Sarah Jenkins</h2>
-                            <p class="quote">A true dream come-true experience. The comprehensive curriculum and
-                                mentorship helped me clear all pilot credentials on my very first attempt.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 5: David Kim (Avionics Engineer) -->
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
-                                alt="David Kim - Avionics Engineer">
-                        </div>
-                        <div class="details-wrapper">
-                            <h2 class="name">David Kim</h2>
-                            <p class="quote">The direct hand-on practice with advanced digital cockpits and electronic
-                                system architectures bridged the gap between theory and standard operations.</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
