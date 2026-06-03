@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Swiper CSS CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -29,107 +31,10 @@
             --font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-family);
-            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
-            min-height: 100vh;
-            color: var(--text-dark);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            position: relative;
-            padding: 40px 20px;
-        }
-
-        /* Ambient Aviation Background Elements */
-        .ambient-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .flight-path {
-            position: absolute;
-            width: 140%;
-            height: 100%;
-            top: -10%;
-            left: -20%;
-            opacity: 0.08;
-            stroke-dasharray: 8 8;
-            animation: dash 60s linear infinite;
-        }
-
         @keyframes dash {
             to {
                 stroke-dashoffset: -1000;
             }
-        }
-
-        .ambient-glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            filter: blur(80px);
-        }
-
-        /* Header Styling */
-        .header-section {
-            text-align: center;
-            margin-bottom: 60px;
-            z-index: 1;
-            position: relative;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--primary-light);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.05);
-        }
-
-        .header-section h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #0f172a;
-            margin-bottom: 12px;
-            background: linear-gradient(to right, #0f172a, #1e3a8a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .header-section p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
         }
 
         /* Slider Wrapper */
@@ -157,7 +62,7 @@
             width: 130px !important;
             height: 110px;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-                        opacity 0.5s ease;
+                opacity 0.5s ease;
             opacity: 0.5;
             display: flex;
             align-items: stretch;
@@ -175,8 +80,8 @@
 
         /* Active slide — wide card */
         .swiper-slide-active {
-            width: 480px !important;
-            height: 220px;
+            width: 549px !important;
+            height: 252px;
             opacity: 1;
             pointer-events: auto;
             z-index: 10;
@@ -195,7 +100,7 @@
             overflow: hidden;
             box-sizing: border-box;
             transition: border-color 0.4s ease, box-shadow 0.4s ease,
-                        border-radius 0.4s ease, background 0.4s ease;
+                border-radius 0.4s ease, background 0.4s ease;
         }
 
         /* Active Card styling */
@@ -215,13 +120,13 @@
             overflow: hidden;
             flex-shrink: 0;
             transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-                        height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         /* Active avatar — fixed size, square */
         .swiper-slide-active .avatar-wrapper {
-            width: 170px;
-            height: 170px;
+            width: 202px;
+            height: 204px;
             border-radius: 12px;
         }
 
@@ -242,94 +147,103 @@
             justify-content: center;
             flex-shrink: 0;
             transition: opacity 0.3s ease 0.15s,
-                        width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-                        padding 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                padding 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         /* Details — visible on active */
         .swiper-slide-active .details-wrapper {
             opacity: 1;
-            width: 250px;
-            padding-left: 20px;
+            width: 298px;
+            padding-left: 24px;
         }
 
         /* Typography */
         .name {
-            font-size: 1.2rem;
+            font-size: 18px;
             font-weight: 800;
             color: #0f172a;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             line-height: 1.2;
         }
 
-        .role {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--primary-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .role::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--primary-light);
-            flex-shrink: 0;
-        }
-
         .quote {
-            font-size: 0.88rem;
+            font-size: 16px;
             color: #475569;
             line-height: 1.6;
         }
 
         /* Tablet */
         @media (max-width: 900px) {
-            .swiper-slide         { width: 100px !important; height: 85px; }
-            .swiper-slide-active  { width: 340px !important; height: 180px; }
-            .swiper-slide-active .avatar-wrapper { width: 130px; height: 130px; }
-            .swiper-slide-active .details-wrapper { width: 180px; padding-left: 14px; }
-            .name  { font-size: 1rem; }
-            .role  { font-size: 0.7rem; }
-            .quote { font-size: 0.78rem; }
+            .swiper-slide {
+                width: 100px !important;
+                height: 85px;
+            }
+
+            .swiper-slide-active {
+                width: 340px !important;
+                height: 180px;
+            }
+
+            .swiper-slide-active .avatar-wrapper {
+                width: 130px;
+                height: 130px;
+            }
+
+            .swiper-slide-active .details-wrapper {
+                width: 180px;
+                padding-left: 14px;
+            }
+
+            .name {
+                font-size: 1rem;
+            }
+
+            .quote {
+                font-size: 14px;
+            }
         }
 
         /* Mobile */
         @media (max-width: 480px) {
-            .swiper-slide         { width: 72px !important; height: 65px; }
-            .swiper-slide-active  { width: calc(100vw - 180px) !important; height: 160px; }
-            .swiper-slide-active .avatar-wrapper { width: 110px; height: 110px; }
-            .swiper-slide-active .details-wrapper { width: calc(100% - 110px); padding-left: 10px; }
-            .name  { font-size: 0.9rem; }
-            .role  { font-size: 0.65rem; margin-bottom: 6px; }
-            .quote { font-size: 0.72rem; line-height: 1.4; }
+            .swiper-slide {
+                width: 72px !important;
+                height: 65px;
+            }
+
+            .swiper-slide-active {
+                width: calc(100vw - 180px) !important;
+                height: 160px;
+            }
+
+            .swiper-slide-active .avatar-wrapper {
+                width: 110px;
+                height: 110px;
+            }
+
+            .swiper-slide-active .details-wrapper {
+                width: calc(100% - 110px);
+                padding-left: 10px;
+            }
+
+            .name {
+                font-size: 0.9rem;
+            }
+
+            .role {
+                font-size: 0.65rem;
+                margin-bottom: 6px;
+            }
+
+            .quote {
+                font-size: 0.72rem;
+                line-height: 1.4;
+            }
         }
     </style>
 </head>
+
 <body>
-
-    <!-- Ambient Sky Backdrop -->
-    <div class="ambient-bg">
-        <svg class="flight-path" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-100 300 C 200 150, 400 450, 700 200 C 900 50, 1100 250, 1200 150" stroke="rgba(59, 130, 246, 1)" stroke-width="1.5"/>
-            <path d="M-50 400 C 250 250, 350 550, 750 300 C 950 150, 1050 350, 1250 250" stroke="rgba(46, 125, 50, 0.7)" stroke-width="1"/>
-        </svg>
-        <div class="ambient-glow"></div>
-    </div>
-
-    <!-- Title Header Section -->
-    <div class="header-section">
-        <span class="badge">Alumni Success Stories</span>
-        <h1>Where Dreams Take Flight</h1>
-        <p>Discover how our world-class training programs have empowered professional aviators and cabin crew members to excel at leading airlines globally.</p>
-    </div>
 
     <!-- Slider Container -->
     <div class="slider-section">
@@ -342,12 +256,14 @@
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=600" alt="James Walker - Elite Captain">
+                            <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=600"
+                                alt="James Walker - Elite Captain">
                         </div>
                         <div class="details-wrapper">
                             <h2 class="name">James Walker</h2>
-                            <span class="role">Captain, Global Airways</span>
-                            <p class="quote">The training was professional, well-structured, and gave me valuable real-world exposure that boosted my confidence for the next stage of my aviation career.</p>
+                            <p class="quote">The training was professional, well-structured, and gave me valuable
+                                real-world exposure that boosted my confidence for the next stage of my aviation career.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -356,12 +272,14 @@
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Elena Rostova - Cabin Crew Leader">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+                                alt="Elena Rostova - Cabin Crew Leader">
                         </div>
                         <div class="details-wrapper">
                             <h2 class="name">Elena Rostova</h2>
-                            <span class="role">Cabin Crew Lead, SkyLink</span>
-                            <p class="quote">Exceptional safety drills and passenger care modules! The instructors prepared me meticulously for the dynamic and rigorous environments of international travel.</p>
+                            <p class="quote">Exceptional safety drills and passenger care modules! The instructors
+                                prepared me meticulously for the dynamic and rigorous environments of international
+                                travel.</p>
                         </div>
                     </div>
                 </div>
@@ -370,12 +288,13 @@
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="Marcus Vance - Senior Captain">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
+                                alt="Marcus Vance - Senior Captain">
                         </div>
                         <div class="details-wrapper">
                             <h2 class="name">Marcus Vance</h2>
-                            <span class="role">Senior Captain, AeroWings</span>
-                            <p class="quote">Even with thousands of flight hours, the specialized jet-transition module provided key insights. The state-of-the-art simulator sessions were outstanding.</p>
+                            <p class="quote">Even with thousands of flight hours, the specialized jet-transition module
+                                provided key insights. The state-of-the-art simulator sessions were outstanding.</p>
                         </div>
                     </div>
                 </div>
@@ -384,12 +303,13 @@
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600" alt="Sarah Jenkins - First Officer">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
+                                alt="Sarah Jenkins - First Officer">
                         </div>
                         <div class="details-wrapper">
                             <h2 class="name">Sarah Jenkins</h2>
-                            <span class="role">First Officer, Blue Horizon</span>
-                            <p class="quote">A true dream come-true experience. The comprehensive curriculum and mentorship helped me clear all pilot credentials on my very first attempt.</p>
+                            <p class="quote">A true dream come-true experience. The comprehensive curriculum and
+                                mentorship helped me clear all pilot credentials on my very first attempt.</p>
                         </div>
                     </div>
                 </div>
@@ -398,12 +318,13 @@
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="avatar-wrapper">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600" alt="David Kim - Avionics Engineer">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
+                                alt="David Kim - Avionics Engineer">
                         </div>
                         <div class="details-wrapper">
                             <h2 class="name">David Kim</h2>
-                            <span class="role">Chief Avionics Lead, Pacific Air</span>
-                            <p class="quote">The direct hand-on practice with advanced digital cockpits and electronic system architectures bridged the gap between theory and standard operations.</p>
+                            <p class="quote">The direct hand-on practice with advanced digital cockpits and electronic
+                                system architectures bridged the gap between theory and standard operations.</p>
                         </div>
                     </div>
                 </div>
@@ -452,4 +373,5 @@
         });
     </script>
 </body>
+
 </html>
