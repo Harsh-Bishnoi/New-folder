@@ -7,7 +7,11 @@
     <title>Elite Aviation Academy - Testimonial Slider</title>
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         .slider-section {
             width: 100%;
@@ -31,13 +35,24 @@
             flex-shrink: 0;
             cursor: pointer;
             transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-                        height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         /* Show only prev, active, next — fix order so active is always center */
-        .slide-item.is-prev  { display: flex; order: 1; }
-        .slide-item.is-active { display: flex; order: 2; }
-        .slide-item.is-next  { display: flex; order: 3; }
+        .slide-item.is-prev {
+            display: flex;
+            order: 1;
+        }
+
+        .slide-item.is-active {
+            display: flex;
+            order: 2;
+        }
+
+        .slide-item.is-next {
+            display: flex;
+            order: 3;
+        }
 
         /* Active slide */
         .slide-item.is-active {
@@ -58,7 +73,7 @@
             border: 1px solid transparent;
             overflow: hidden;
             transition: border-color 0.4s ease, box-shadow 0.4s ease,
-                        border-radius 0.4s ease, background 0.4s ease;
+                border-radius 0.4s ease, background 0.4s ease;
         }
 
         .slide-item.is-active .testimonial-card {
@@ -77,12 +92,14 @@
             overflow: hidden;
             flex-shrink: 0;
             transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-                        height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .slide-item.is-active .avatar-wrapper {
             width: 202px;
             height: 204px;
+            min-height: 204px;
+            max-height: 204px;
         }
 
         .avatar-wrapper img {
@@ -92,7 +109,6 @@
             display: block;
         }
 
-        /* Details — hidden inactive */
         .details-wrapper {
             opacity: 0;
             width: 0;
@@ -102,8 +118,8 @@
             justify-content: center;
             flex-shrink: 0;
             transition: opacity 0.3s ease 0.15s,
-                        width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-                        padding 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                width 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                padding 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .slide-item.is-active .details-wrapper {
@@ -130,24 +146,71 @@
 
         /* Tablet */
         @media (max-width: 1023.98px) {
-            .slide-item { width: 100px; height: 85px; }
-            .slide-item.is-active { width: 450px; height: auto; }
-            .slide-item.is-active .avatar-wrapper { width: 130px; height: 130px; }
-            .slide-item.is-active .details-wrapper { padding-left: 14px; }
+            .slide-item {
+                width: 100px;
+                height: 85px;
+            }
+
+            .slide-item.is-active {
+                width: 450px;
+                height: auto;
+            }
+
+            .slide-item.is-active .avatar-wrapper {
+                width: 150px;
+                height: 130px !important;
+                min-height: 130px;
+                max-height: 130px;
+            }
+
+            .slide-item.is-active .details-wrapper {
+                padding-left: 14px;
+            }
+
+            .slide-item.is-active .testimonial-card {
+                padding: 16px !important;
+                ;
+            }
         }
 
         /* Mobile */
         @media (max-width: 767.98px) {
-            .slide-item { width: 90px; height: 90px; }
-            .slide-item.is-active { width: 380px; height: auto; }
-            .slide-item.is-active .testimonial-card { flex-direction: column; }
-            .slide-item.is-active .avatar-wrapper { width: 100%; height: 200px; }
-            .avatar-wrapper img { object-position: 40% 60%; }
-            .slide-item.is-active .details-wrapper { max-width: none; padding-left: 0; margin-top: 16px; }
+            .slide-item {
+                width: 90px;
+                height: 90px;
+            }
+
+            .slide-item.is-active {
+                width: 380px;
+                height: auto;
+            }
+
+            .slide-item.is-active .testimonial-card {
+                flex-direction: column;
+            }
+
+            .slide-item.is-active .avatar-wrapper {
+                width: 100%;
+                height: 200px !important;
+                min-height: 200px;
+                max-height: 200px;
+            }
+
+            .avatar-wrapper img {
+                object-position: 50% 50%;
+            }
+
+            .slide-item.is-active .details-wrapper {
+                max-width: none;
+                padding-left: 0;
+                margin-top: 16px;
+            }
         }
 
         @media (max-width: 540.98px) {
-            .slide-item.is-active { width: 330px; }
+            .slide-item.is-active {
+                width: 330px;
+            }
         }
     </style>
 </head>
@@ -160,12 +223,16 @@
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
-                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d3f05a573b3f0e7c0dd7d_Marcel-Zimmer.webp" alt="Marcel Zimmer">
+                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d3f05a573b3f0e7c0dd7d_Marcel-Zimmer.webp"
+                            alt="Marcel Zimmer">
                     </div>
                     <div class="details-wrapper">
                         <h2 class="name">First Officer Marcel Zimmer</h2>
-                        <p class="quote">"Personal - Respectful - Team Spirit - From day one, I was welcomed and treated as a full-fledged member of the crew. The focus is on treating each other with respect and sharing knowledge.</p>
-                        <p class="quote">In this short time, I've already learned a great deal. I'm proud to be part of the team."</p>
+                        <p class="quote">"Personal - Respectful - Team Spirit - From day one, I was welcomed and treated
+                            as a full-fledged member of the crew. The focus is on treating each other with respect and
+                            sharing knowledge.</p>
+                        <p class="quote">In this short time, I've already learned a great deal. I'm proud to be part of
+                            the team."</p>
                     </div>
                 </div>
             </div>
@@ -173,12 +240,15 @@
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
-                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d3ec2f9e6f564a6c70994_Younass-Marzak.webp" alt="Younass Marzak">
+                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d3ec2f9e6f564a6c70994_Younass-Marzak.webp"
+                            alt="Younass Marzak">
                     </div>
                     <div class="details-wrapper">
                         <h2 class="name">First Officer Younass Marzak</h2>
-                        <p class="quote">"European Air Charter gave me my first opportunity to fly the Airbus A320, a big milestone that marked the beginning of my career.</p>
-                        <p class="quote">Today, I am proud to continue building my future within this company and its exceptional family."</p>
+                        <p class="quote">"European Air Charter gave me my first opportunity to fly the Airbus A320, a
+                            big milestone that marked the beginning of my career.</p>
+                        <p class="quote">Today, I am proud to continue building my future within this company and its
+                            exceptional family."</p>
                     </div>
                 </div>
             </div>
@@ -186,11 +256,16 @@
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
-                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d404e39bb87ec40c13218_Guilherme-Gomes.webp" alt="Guilherme Gomes">
+                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a1d404e39bb87ec40c13218_Guilherme-Gomes.webp"
+                            alt="Guilherme Gomes">
                     </div>
                     <div class="details-wrapper">
                         <h2 class="name">First Officer Guilherme Gomes</h2>
-                        <p class="quote">"The programme at European Air Charter has given me the opportunity to gain valuable flying experience in a professional airline environment. Throughout the programme, I have developed my skills, increased my confidence in daily operations, and learned from experienced colleagues. It has been a rewarding experience and an important step in my development as a commercial pilot."</p>
+                        <p class="quote">"The programme at European Air Charter has given me the opportunity to gain
+                            valuable flying experience in a professional airline environment. Throughout the programme,
+                            I have developed my skills, increased my confidence in daily operations, and learned from
+                            experienced colleagues. It has been a rewarding experience and an important step in my
+                            development as a commercial pilot."</p>
                     </div>
                 </div>
             </div>
@@ -198,11 +273,13 @@
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
-                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a18020e7a2eb5dcfcd6d18f_worked-with-slider-img-4.png" alt="James Walker">
+                        <img src="https://cdn.prod.website-files.com/69e07f31f135e0a6dcb821b2/6a18020e7a2eb5dcfcd6d18f_worked-with-slider-img-4.png"
+                            alt="James Walker">
                     </div>
                     <div class="details-wrapper">
                         <h2 class="name">James Walker</h2>
-                        <p class="quote">The training was professional, well-structured, and gave me valuable real-world exposure that boosted my confidence for the next stage of my aviation career.</p>
+                        <p class="quote">The training was professional, well-structured, and gave me valuable real-world
+                            exposure that boosted my confidence for the next stage of my aviation career.</p>
                     </div>
                 </div>
             </div>
@@ -257,4 +334,5 @@
     </script>
 
 </body>
+
 </html>
