@@ -134,6 +134,7 @@
             font-weight: 700;
             color: #101010;
             margin-bottom: 8px;
+            margin-top: 0 !important;
             line-height: 140%;
         }
 
@@ -142,6 +143,11 @@
             color: #101010B2;
             line-height: 160%;
             margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+
         }
 
         /* Tablet */
@@ -205,11 +211,19 @@
                 padding-left: 0;
                 margin-top: 16px;
             }
+
+            .name {
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 540.98px) {
             .slide-item.is-active {
                 width: 330px;
+            }
+
+            .quote {
+                font-size: 14px;
             }
         }
     </style>
@@ -220,6 +234,7 @@
     <div class="slider-section">
         <div class="slider-track" id="sliderTrack">
 
+            <!-- 1st slide -->
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
@@ -230,13 +245,14 @@
                         <h2 class="name">First Officer Marcel Zimmer</h2>
                         <p class="quote">"Personal - Respectful - Team Spirit - From day one, I was welcomed and treated
                             as a full-fledged member of the crew. The focus is on treating each other with respect and
-                            sharing knowledge.</p>
-                        <p class="quote">In this short time, I've already learned a great deal. I'm proud to be part of
+                            sharing knowledge. <br> In this short time, I've already learned a great deal. I'm proud to
+                            be part of
                             the team."</p>
                     </div>
                 </div>
             </div>
 
+            <!-- 2nd slide -->
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
@@ -246,13 +262,14 @@
                     <div class="details-wrapper">
                         <h2 class="name">First Officer Younass Marzak</h2>
                         <p class="quote">"European Air Charter gave me my first opportunity to fly the Airbus A320, a
-                            big milestone that marked the beginning of my career.</p>
-                        <p class="quote">Today, I am proud to continue building my future within this company and its
+                            big milestone that marked the beginning of my career. <br>Today, I am proud to continue
+                            building my future within this company and its
                             exceptional family."</p>
                     </div>
                 </div>
             </div>
 
+            <!-- 3rd slide -->
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
@@ -270,6 +287,7 @@
                 </div>
             </div>
 
+            <!-- 4th slide -->
             <div class="slide-item">
                 <div class="testimonial-card">
                     <div class="avatar-wrapper">
@@ -277,13 +295,16 @@
                             alt="James Walker">
                     </div>
                     <div class="details-wrapper">
-                        <h2 class="name">James Walker</h2>
-                        <p class="quote">The training was professional, well-structured, and gave me valuable real-world
-                            exposure that boosted my confidence for the next stage of my aviation career.</p>
+                        <h2 class="name">First Officer Fernando Orosa</h2>
+                        <p class="quote">"My experience with European Air Charter started with the base training, and I
+                            am now completing the 500-hour flying programme.
+                            The company’s safety culture is strongly reflected in its principle that ‘Human Life is
+                            Priceless,’ which is evident throughout the operation. I have enjoyed every aspect of the
+                            experience so far, and the supportive and professional environment has exceeded my
+                            expectations."</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -312,7 +333,10 @@
         function next() { current = mod(current + 1, total); update(); }
         function prev() { current = mod(current - 1, total); update(); }
 
-        function startAutoplay() { autoplayTimer = setInterval(next, 3000); }
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayTimer = setInterval(next, 3000);
+        }
         function stopAutoplay() { clearInterval(autoplayTimer); }
 
         slides.forEach((slide, i) => {
@@ -330,7 +354,7 @@
         section.addEventListener('mouseleave', startAutoplay);
 
         update();
-        // startAutoplay();
+        startAutoplay();
     </script>
 
 </body>

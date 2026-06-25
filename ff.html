@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .form-submission-html {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .thank-you-text {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: #A66D73;
+            font-size: 24px;
+            line-height: 140%;
+            font-weight: 400;
+            margin-top: -10px;
+            animation: fadeUp 1s ease;
+        }
+
+        @media (max-width:768px) {
+            .thank-you-text {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width:480px) {
+            .thank-you-text {
+                font-size: 18px;
+            }
+        }
+
+        .confetti-bg {
+            position: absolute;
+            background: #F9DFE2;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <!-- Background Image -->
+    <img src="https://i.ibb.co/H0J3Gss/Group.png" alt="Confetti Background" class="confetti-bg">
+
+    <p class="thank-you-text">
+        Thank you so much for reaching out to <br> me! I will be in touch with you ASAP!
+    </p>
+</body>
+
+</html>
