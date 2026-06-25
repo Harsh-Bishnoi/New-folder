@@ -147,7 +147,11 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 4;
             overflow: hidden;
+        }
 
+        .quote.expanded {
+            -webkit-line-clamp: unset;
+            display: block;
         }
 
         .see-more-btn {
@@ -284,6 +288,7 @@
                             big milestone that marked the beginning of my career. <br>Today, I am proud to continue
                             building my future within this company and its
                             exceptional family."</p>
+                        <button class="see-more-btn">See More</button>
                     </div>
                 </div>
             </div>
@@ -302,6 +307,7 @@
                             I have developed my skills, increased my confidence in daily operations, and learned from
                             experienced colleagues. It has been a rewarding experience and an important step in my
                             development as a commercial pilot."</p>
+                        <button class="see-more-btn">See More</button>
                     </div>
                 </div>
             </div>
@@ -321,6 +327,7 @@
                             Priceless,’ which is evident throughout the operation. I have enjoyed every aspect of the
                             experience so far, and the supportive and professional environment has exceeded my
                             expectations."</p>
+                        <button class="see-more-btn">See More</button>
                     </div>
                 </div>
             </div>
@@ -332,45 +339,93 @@
         const track = document.getElementById('sliderTrack');
         const slides = Array.from(track.querySelectorAll('.slide-item'));
         const total = slides.length;
+
         let current = 0;
         let autoplayTimer = null;
+        let isHovered = false;
+        let isExpanded = false; // true when any quote is expanded (see more clicked)
 
         function mod(n, m) { return ((n % m) + m) % m; }
 
         function update() {
             const prevIdx = mod(current - 1, total);
             const nextIdx = mod(current + 1, total);
-
             slides.forEach((slide, i) => {
                 slide.classList.remove('is-active', 'is-prev', 'is-next');
                 if (i === current) slide.classList.add('is-active');
                 else if (i === prevIdx) slide.classList.add('is-prev');
                 else if (i === nextIdx) slide.classList.add('is-next');
+
+                // collapse any expanded quote on non-active slides
+                if (i !== current) {
+                    const quote = slide.querySelector('.quote');
+                    const btn = slide.querySelector('.see-more-btn');
+                    if (quote) quote.classList.remove('expanded');
+                    if (btn) btn.textContent = 'See More';
+                }
             });
+
+            // if a quote was expanded, reset the flag and resume autoplay
+            if (isExpanded) {
+                isExpanded = false;
+                startAutoplay();
+            }
         }
 
         function next() { current = mod(current + 1, total); update(); }
-        function prev() { current = mod(current - 1, total); update(); }
 
         function startAutoplay() {
-            stopAutoplay();
+            if (isHovered || isExpanded) return; // don't start if paused
+            clearInterval(autoplayTimer);
             autoplayTimer = setInterval(next, 3000);
         }
-        function stopAutoplay() { clearInterval(autoplayTimer); }
 
+        function stopAutoplay() {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+
+        // Slide click — go to that slide
         slides.forEach((slide, i) => {
             slide.addEventListener('click', () => {
                 if (i !== current) {
-                    stopAutoplay();
                     current = i;
                     update();
-                    startAutoplay();
+                    startAutoplay(); // respects isHovered / isExpanded
                 }
             });
         });
 
-        section.addEventListener('mouseenter', stopAutoplay);
-        section.addEventListener('mouseleave', startAutoplay);
+        // See More / See Less buttons
+        slides.forEach((slide) => {
+            const btn = slide.querySelector('.see-more-btn');
+            if (!btn) return;
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const quote = slide.querySelector('.quote');
+                const expanded = quote.classList.toggle('expanded');
+                btn.textContent = expanded ? 'See Less' : 'See More';
+                isExpanded = expanded;
+
+                if (isExpanded) {
+                    stopAutoplay();
+                } else {
+                    startAutoplay(); // will only start if not hovered either
+                }
+            });
+        });
+
+        // Hover pause — only works when quote is NOT expanded
+        section.addEventListener('mouseenter', () => {
+            isHovered = true;
+            stopAutoplay();
+        });
+
+        section.addEventListener('mouseleave', () => {
+            isHovered = false;
+            startAutoplay(); // respects isExpanded
+        });
 
         update();
         startAutoplay();
